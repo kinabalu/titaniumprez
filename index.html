@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Using Javascript to Build Native Mobile Applications</title>
+
+		<meta name="description" content="A presentation about building native mobile applications using Javascript with Appcelerator Titanium">
+		<meta name="author" content="Andrew Lombardi">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/reset.css">
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="reveal.js-fullscreen-img/fullscreen-img.css" />
+
+		<style>
+			.button {
+				-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+				-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+				box-shadow:inset 0px 1px 0px 0px #ffffff;
+				background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+				background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+				background-color:#ededed;
+				-moz-border-radius:6px;
+				-webkit-border-radius:6px;
+				border-radius:6px;
+				border:1px solid #dcdcdc;
+				display:inline-block;
+				color:#777777;
+				font-family:arial;
+				font-size:15px;
+				font-weight:bold;
+				padding:6px 24px;
+				text-decoration:none;
+				text-shadow:1px 1px 0px #ffffff;
+			}.button:hover {
+				background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+				background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+				background-color:#dfdfdf;
+			}.button:active {
+				position:relative;
+				top:1px;
+			}
+
+		</style>
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			//document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+				    <!-- <object type="image/svg+xml" width="300" height="300" data="images/HTML5-Logo.svg"></object> -->
+				    <img src="images/titanium_logo.png" />
+
+					<h2>Using Javascript to Build Native Mobile Applications</h2>
+					<p>
+						<small><a href="http://mysticcoders.com">Andrew Lombardi</a> / <a href="http://twitter.com/kinabalu">@kinabalu</a></small>
+					</p>
+					<p>
+						<small><a href="http://mysticcoders.com">Mystic Coders, LLC</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>About Me</h2>
+						<img src="images/me_and_jd.png" />
+						<aside class="notes">
+							Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+						</aside>						
+					</section>
+					<section>
+						<h2>About Me</h2>
+						<p class="fragment">13 Years in Business</p>
+						<p class="fragment">Software Consultants</p>
+						<p class="fragment">International Speakers</p>
+						<p class="fragment">Training</p>
+						<p class="fragment">Future Javascript Ninja</p>
+						<p>&nbsp;</p>
+						<p class="fragment"><strong>To our success!</strong></p>
+					</section>
+				</section>
+				<section fullscreen-img="images/skydiving.png" />
+				</section>	
+				<section>
+					<h3>Download Appcelerator Titanium</h3>
+					<img src="images/titanium_signup_webpage.png" border="0" />
+				</section>
+				<section>
+					<h3>Become an Apple iOS Developer</h3>
+					<img src="images/apple_developer_signup.png" border="0" />
+				</section>
+				<section>
+					<h3>Become an Google Play Developer</h3>
+					<img src="images/google_developer_signup.png" border="0" />
+				</section>
+				<section>
+					<h3>Become an Amazon Appstore Developer</h3>
+					<img src="images/amazon_developer_signup.png" border="0" />
+				</section>
+				<section>
+					<h2>Cost Breakdown</h2>
+					<h3 class="fragment">iOS Developer: $99 USD/YR</h3>
+					<h3 class="fragment">Google Play Developer: $25 USD once</h3>
+					<h3 class="fragment">Amazon Appstore Developer: $99 USD/YR</h3>
+					<h3 class="fragment">30% of sales</h3>
+				</section>
+				<section>
+					<h2>Comparison with PhoneGap</h2>
+					<table>
+						<thead>
+							<th>&nbsp;</th>
+							<th>Titanium</th>
+							<th>PhoneGap<th>
+						</thead>
+						<tbody>
+							<tr><td>Platform</td><td>iOS, Android, Windows, Blackberry, HTML5</td><td>iOS, Android, WebOS, Windows, RIM, Symbian</td></tr>
+							<tr><td>Device HW</td><td>GPS, Vibration, Accelerometer, Compass, Camera, Microphone</td><td>GPS, Vibration, Accelerometer, Compass, Camera, Microphone</td></tr>
+							<tr><td>Native UI</td><td>Yes</td><td>No</td></tr>
+							<tr><td>Performance</td><td>Not as fast as native, but "good enough"</td><td>As fast as HTML / JavaScript on device</td><tr>
+						</tbody>
+					</table>
+				</section>	
+
+				<section>
+					<h2>Helpful Links</h2>
+					<p><a href="http://www.appcelerator.com">Appcelerator Titanium</a></p>
+					<p><a href="http://github.com/appcelerator">Titanium Source</a></p>
+					<p><a href="http://developer.appcelerator.com/training">Titanium Training</a></p>
+					<p><a href="http://developer.apple.com">Apple Developer Portal</a></p>
+					<p><a href="https://play.google.com/apps/publish">Google Play Developer</a></p>
+					<p><a href="https://developer.amazon.com/welcome.html">Amazon App Store for Android</a></p>
+				</section>
+				<section>
+					<h1>Q & A</h1>
+					<h3>Andrew Lombardi / <a href="http://www.twitter.com/kinabalu">@kinabalu</a></h3>
+					<p>
+						kinabalu @ <a href="irc://irc.freenode.net">irc://irc.freenode.net</a>
+					</p>
+					<p>
+						<small>#titanium_app, #javascript</small>
+					</p>
+					<p>
+						<small><a href="https://github.com/kinabalu/html5presentation">https://github.com/kinabalu/titaniumprez</a></small>
+					</p>
+
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.min.js"></script>
+		<script src="js/underscore-min.js"></script>
+		<script>
+
+			var iframe_sections = [
+				// {'name': 'balloonshooter', 'url': 'balloonshooter/bubbles/index.html'},
+				// {'name': 'wolfenstein', 'url': 'http://www.nihilogic.dk/labs/wolf/'},
+				// {'name': 'html5_form', 'url': 'form.html'},
+				// {'name': 'geolocation', 'url': 'geolocation.html'},
+				// {'name': 'webgl', 'url': 'cube.html'}
+			];
+
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+			    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+
+				_.each(iframe_sections, function(id_name) {
+					name = id_name['name'];
+					url = id_name['url'];
+
+				    if(event.previousSlide && event.previousSlide.getAttribute('id')==name) {
+				    	document.getElementById(name+'_iframe').parentNode.removeChild(document.getElementById(name+'_iframe'));
+					}
+
+					if(event.currentSlide.getAttribute('id')==name) {
+						var iframe = document.createElement("iframe");
+						iframe.src = url;
+						iframe.id = name+'_iframe';
+						iframe.width = '100%';
+						iframe.height = '100%';
+						document.getElementById(name).appendChild(iframe);					
+					}
+				});
+			} );			
+			Reveal.addEventListener( 'overviewshown', function( event ) { 
+			} );
+		</script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js-fullscreen-img/fullscreen-img.js' }
+					//{ src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+			/*
+			var canvas = document.getElementById('mystic_logo');
+			if (canvas.getContext) {
+				alert('canvas');
+				var context = canvas.getContext('2d');
+
+				var myImage = new Image();
+				myImage.onload = function() {
+				  canvas.setAttribute('width', myImage.width);
+				  canvas.setAttribute('height', myImage.height);
+				  context.drawImage(myImage, 0, 0);
+		          }
+			}
+			myImage.src = "images/mystic-logo-contracts.png";
+			*/
+		</script>
+
+	</body>
+</html>
