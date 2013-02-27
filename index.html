@@ -53,6 +53,18 @@
 				top:1px;
 			}
 
+
+			table { border-collapse: collapse;
+			font-family: Futura, Arial, sans-serif; }
+			.reveal th, td { padding: 1em; }
+			.reveal th, .reveal thead { background: #000; color: #fff; border: 1px solid #fff; }
+			/*.reveal tr:nth-child(odd) { background: #ccc; }*/
+			.reveal tr:hover { background: #aaa; }
+			.reveal td { border: 1px solid #777; }
+			.reveal th { font-size: 0.75em;}
+			.reveal td { font-size: 0.5em; font-weight: normal; padding: 1em;}
+			.reveal table { border: 1px solid #777; }
+
 		</style>
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
@@ -75,7 +87,6 @@
 			<div class="slides">
 
 				<section>
-				    <!-- <object type="image/svg+xml" width="300" height="300" data="images/HTML5-Logo.svg"></object> -->
 				    <img src="images/titanium_logo.png" />
 
 					<h2>Using Javascript to Build Native Mobile Applications</h2>
@@ -101,13 +112,23 @@
 						<p class="fragment">Software Consultants</p>
 						<p class="fragment">International Speakers</p>
 						<p class="fragment">Training</p>
-						<p class="fragment">Future Javascript Ninja</p>
+						<p class="fragment">App Developer (JavaScript, Objective-C, Java)</p>
 						<p>&nbsp;</p>
 						<p class="fragment"><strong>To our success!</strong></p>
 					</section>
 				</section>
 				<section fullscreen-img="images/skydiving.png" />
 				</section>	
+				<section fullscreen-img="images/snow_angel.jpg" />
+				</section>	
+				<section>
+				    <img src="images/titanium_logo.png" />
+
+					<p>
+						<strong>Titanium</strong> is an open source framework for building <strong>mobile</strong> applications using <strong>Javascript</strong>.
+					</p>
+				</section>
+
 				<section>
 					<h3>Download Appcelerator Titanium</h3>
 					<img src="images/titanium_signup_webpage.png" border="0" />
@@ -117,7 +138,7 @@
 					<img src="images/apple_developer_signup.png" border="0" />
 				</section>
 				<section>
-					<h3>Become an Google Play Developer</h3>
+					<h3>Become a Google Play Developer</h3>
 					<img src="images/google_developer_signup.png" border="0" />
 				</section>
 				<section>
@@ -125,19 +146,112 @@
 					<img src="images/amazon_developer_signup.png" border="0" />
 				</section>
 				<section>
-					<h2>Cost Breakdown</h2>
-					<h3 class="fragment">iOS Developer: $99 USD/YR</h3>
-					<h3 class="fragment">Google Play Developer: $25 USD once</h3>
-					<h3 class="fragment">Amazon Appstore Developer: $99 USD/YR</h3>
-					<h3 class="fragment">30% of sales</h3>
+					<h1>Cost Breakdown</h1>
+					<table width="100%">
+						<thead>
+							<th>Store</th>
+							<th>Cost</th>
+						</thead>
+						<tbody>
+							<tr class="fragment"><td>iOS Developer</td><td>$99 USD/YR</td></tr>
+							<tr class="fragment"><td>Google Play Developer</td><td>$25 USD once</td></tr>
+							<tr class="fragment"><td>Amazon Appstore Developer</td><td>$99 USD/YR</td></tr>
+							<tr class="fragment"><td>All</td><td>30% of Sales</td></tr>
+						</tbody>
+					</table>
 				</section>
+				<section>
+					<section>
+						<h2>Titanium Studio</h2>
+						<img src="images/titanium_studio.png" border="0" />
+					</section>
+					<section>
+						<h2>Benefits</h2>
+						<p>Manage and run Titanium applications</p>
+						<p>Package applications for distribution</p>
+						<p>Run on a device for testing</p>
+						<p>Develop in derivative Eclipse editor Aptana</p>
+					</section>
+					<section>
+						<h2>Titanium Project in xCode</h2>
+						<img src="images/xcode_titanium_project.png" border="0" />
+					</section>
+				</section>
+				<section>
+					<h2>Installing Command-Line Tools</h2>
+					<br />
+					<p>Installing NodeJS</p>
+					<p><small>On Windows: <a href="http://nodejs.org/dist/latest/node.exe">http://nodejs.org/dist/latest/node.exe</a></small></p>
+					<p><small>On Mac OS X: <a href="http://nodejs.org/dist/latest/">http://nodejs.org/dist/latest/</a></small></p>
+					<p><small>On Linux: <a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager</a></small></p>
+					<p>Installing Titanium Runtime</p>
+<pre><code>% npm install titanium
+% npm install alloy
+</code></pre>
+				</section>
+				<section>
+					<section>
+						<h2>Building Hello, World</h2>
+
+<pre><code>% titanium create
+Titanium Command-Line Interface, CLI version 3.0.22, Titanium SDK version 3.0.0.GA
+Copyright (c) 2012, Appcelerator, Inc.  All Rights Reserved.
+
+Please report bugs to http://jira.appcelerator.org/
+
+Target platforms: (android,ios,ipad,iphone,mobileweb) android,ios,ipad,iphone
+App ID: com.mysticcoders.helloworld
+Project name: helloworld
+Directory to place project: /Users/kinabalu/Source/helloworld
+
+[INFO] Creating Titanium Mobile application project
+[INFO] Project 'helloworld' created successfully in 56ms
+% cd helloworld
+% alloy new .
+</code></pre>
+					</section>
+					<section>
+						<h2>Our View XML</h2>
+<pre><code>&lt;Alloy&gt;<br/>	&lt;Window class=&quot;container&quot;&gt;<br/>	&lt;Label id=&quot;label&quot; onClick=&quot;doClick&quot;&gt;Hello, World&lt;/Label&gt;<br/>	&lt;/Window&gt;<br/>&lt;/Alloy&gt;	
+</code></pre>					
+					</section>
+					<section>
+						<h2>Our View Stylesheet</h2>
+<pre><code>".container": {
+	backgroundColor:"white"
+},
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "#000"
+} 	
+</code></pre>					
+					</section>
+					<section>
+						<h2>Our Controller</h2>
+<pre><code>function doClick(e) {  
+    alert($.label.text);
+}
+
+$.index.open();
+</code></pre>					
+					</section>
+					<section>
+						<h1>DEMO</h1>
+					</section>
+					<section>
+						<h2>Android Hints</h2>
+						<p>Sometimes the adb server doesn't start, so you'll have to do it manually</p>
+<pre><code>adb start-server</code></pre>
+					</section>
+				</section>				
 				<section>
 					<h2>Comparison with PhoneGap</h2>
 					<table>
 						<thead>
 							<th>&nbsp;</th>
 							<th>Titanium</th>
-							<th>PhoneGap<th>
+							<th>PhoneGap</th>
 						</thead>
 						<tbody>
 							<tr><td>Platform</td><td>iOS, Android, Windows, Blackberry, HTML5</td><td>iOS, Android, WebOS, Windows, RIM, Symbian</td></tr>
