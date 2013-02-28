@@ -128,7 +128,40 @@
 						<strong>Titanium</strong> is an open source framework for building <strong>mobile</strong> applications using <strong>Javascript</strong>.
 					</p>
 				</section>
-
+				<section>
+					<h2>What is it good for?</h2>
+					<p>Data-driven web service clients</p>
+					<p>Web service mash-ups</p>
+					<p>Social utilities</p>
+					<p>Casual games</p>
+				</section>				
+				<section>
+					<h2>Mobile Architecture</h2>
+					<img src="images/titanium_app_flow.png" border="0" />
+				</section>
+				<section>
+					<h2>Titanium Fundamentals</h2>
+					<ul>
+						<li>A Titanium application is a JavaScript program that is interpreted at runtime on the device</li>
+						<li><strong>app.js</strong> = root execution context of the app</li>
+						<li>No browser involved / WebView</li>
+						<li>We use the WebKit KJS JavaScript engine (iOS) or Rhino (Android/BB)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Titanium Javascript API</h2>
+					<ul>
+						<li>Organized into logical namespaces</li>
+						<li>“Titanium” (or just “Ti” for short) is the root namespace for all Titanium functionality</li>
+						<li>A few other odds and ends in the global space
+ 							<ul>
+ 								<li>setTimeout/setInterval</li>
+ 								<li>alert</li>
+ 								<li>JSON</li>
+ 							</ul>
+ 						</li>
+ 					</ul>
+				</section>
 				<section>
 					<h3>Download Appcelerator Titanium</h3>
 					<img src="images/titanium_signup_webpage.png" border="0" />
@@ -176,6 +209,28 @@
 						<h2>Titanium Project in xCode</h2>
 						<img src="images/xcode_titanium_project.png" border="0" />
 					</section>
+				</section>
+				<section>
+					<h2>Checking Memory</h2>
+<pre><code>
+var int=self.setInterval(function(){printMem()},1000);
+function printMem() {
+	Ti.API.debug(Ti.Platform.availableMemory);
+}	
+</code></pre>
+				</section>
+				<section>
+					<h2>Universal Apps</h2>
+<pre><code>if(Ti.Platform.osname === ”ipad”) {
+
+    Ti.include(‘app_ipad.js’);
+       
+} else {
+
+    Ti.include(‘app_iphone.js’);
+
+}	
+</code></pre>
 				</section>
 				<section>
 					<h2>Installing Command-Line Tools</h2>
