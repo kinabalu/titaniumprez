@@ -1,5 +1,47 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
-	</Window>
+        <NavigationGroup id="nav" platform="ios">
+            <Window id="win2" title="Quotes" layout="vertical">
+                <RightNavButton>
+                    <Button onClick="showAbout">About</Button>                    
+                </RightNavButton>
+
+                    <Label id="quote"></Label>
+                    <Label id="quote_author"></Label>
+
+
+                <AlertDialog id="dialog" title="About Quotes"  formFactor="tablet"
+                    message="Quotes is a simple Titanium app built right now\nby Andrew Lombardi">
+
+                    <ButtonNames>
+                        <ButtonName>iPad Rules!</ButtonName>
+                    </ButtonNames>
+                </AlertDialog>
+
+                <AlertDialog id="dialog" title="About Quotes"  formFactor="handheld"
+                    message="Quotes is a simple Titanium app built right now\nby Andrew Lombardi">
+
+                    <ButtonNames>
+                        <ButtonName>Okay!</ButtonName>
+                    </ButtonNames>
+                </AlertDialog>
+            </Window>
+        </NavigationGroup>
+        <View id="win2" title="Quotes" layout="vertical" platform="android">
+            <Button onClick="showAbout">About</Button>
+
+            <Label id="quote"></Label>
+            <Label id="quote_author"></Label>
+
+
+            <AlertDialog id="dialog" title="About Quotes"
+                message="Quotes is a simple Titanium app built right now\nby Andrew Lombardi">
+
+                <ButtonNames>
+                    <ButtonName>Android Rules!</ButtonName>
+                </ButtonNames>
+            </AlertDialog>                            
+        </View>
+    </Window>        
+
 </Alloy>

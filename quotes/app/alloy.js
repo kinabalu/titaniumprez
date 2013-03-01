@@ -11,8 +11,18 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 
+function randomQuote() {
+    // pick an author
+    author_index = _.random(0, quotes.length-1);
+    quote_index = _.random(0, quotes[author_index].quotes.length-1);
+    return [quotes[author_index].quotes[quote_index], quotes[author_index].name];
+
+}
+
+
 quotes = [
     {"name": "Rasmus Lerdorf",
+    "show": true,
     "quotes": [
                 "I did not develop the PHP we know today. Dozens, if not hundreds of people, developed PHP. I was simply the first developer.",
                 "I actually hate programming, but I love solving problems.",
@@ -31,6 +41,7 @@ quotes = [
             ]
     },
     {"name": "Edsger Dijkstra",
+    "show": true,
     "quotes": [
                 "As a result of a long sequence of coincidences I entered the programming profession officially on the first spring morning of 1952, and as far as I have been able to trace, I was the first Dutchman to do so in my country.",
                 "We must be very careful when we give advice to younger people: sometimes they follow it!",
@@ -44,6 +55,7 @@ quotes = [
             ]
     },
     {"name": "Charles Babbage",
+    "show": true,
     "quotes": [
                 "It is therefore not unreasonable to suppose that some portion of the neglect of science in England, may be attributed to the system of education we pursue. A young man passes from our public schools to the universities, ignorant of almost every branch of useful knowledge; and at these latter establishments … classical and mathematical pursuits are nearly the sole objects proposed to the student's ambition.",
                 "If we look at the fact, we shall find that the great inventions of the age are not, with us at least, always produced in universities.",

@@ -5,4 +5,13 @@
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,
 	color: "#000"
-} 
+},
+"#quote": {
+    left: 10,
+    font: {
+        font: "Arial-ItalicMT"
+    }
+},
+"#quote_author": {
+    right: 5
+}
