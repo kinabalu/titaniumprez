@@ -11,7 +11,38 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 
+var remote_quotes;
+var url = "http://localhost:1337";
+var client = Ti.Network.createHTTPClient({
+ // function called when the response data is available
+ onload : function(e) {
+    try {
+        remote_quotes = JSON.parse(this.responseText).quotes;
+    } catch(e) {
+        alert("An Error:[" + e.message + "] has occured in line " + e.line + " \nsourceID:"+e.sourceId+"\nsourceURL:"+e.sourceURL);    
+    }
+ },
+ // function called when an error occurs, including a timeout
+ onerror : function(e) {
+    console.log(e.error);
+    alert('error');
+ },
+ timeout : 5000  // in milliseconds
+});
+// Prepare the connection.
+client.open("GET", url);
+// Send the request.
+client.send();
+
+function getQuotes() {
+    return remote_quotes;
+}
+
 function randomQuote() {
+    var quotes = remote_quotes;
+    if(!remote_quotes) {
+        quotes = local_quotes;
+    }
     // pick an author
     author_index = _.random(0, quotes.length-1);
     quote_index = _.random(0, quotes[author_index].quotes.length-1);
@@ -19,8 +50,7 @@ function randomQuote() {
 
 }
 
-
-quotes = [
+local_quotes = [
     {"name": "Rasmus Lerdorf",
     "show": true,
     "quotes": [

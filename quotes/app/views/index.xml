@@ -1,13 +1,13 @@
 <Alloy>
-	<Window class="container">
-        <NavigationGroup id="nav" platform="ios">
-            <Window id="win2" title="Quotes" layout="vertical">
+	<Window class="container" fullscreen="true">
+        <NavigationGroup id="nav" platform="ios" fullscreen="true">
+            <Window id="win2" title="Quotes" layout="vertical" fullscreen="true">
                 <RightNavButton>
                     <Button onClick="showAbout">About</Button>                    
                 </RightNavButton>
 
-                    <Label id="quote"></Label>
-                    <Label id="quote_author"></Label>
+                    <Label id="quote">Click for quote!</Label>
+                    <Label id="quote_author">- Anonymous</Label>
 
 
                 <AlertDialog id="dialog" title="About Quotes"  formFactor="tablet"
@@ -27,21 +27,6 @@
                 </AlertDialog>
             </Window>
         </NavigationGroup>
-        <View id="win2" title="Quotes" layout="vertical" platform="android">
-            <Button onClick="showAbout">About</Button>
-
-            <Label id="quote"></Label>
-            <Label id="quote_author"></Label>
-
-
-            <AlertDialog id="dialog" title="About Quotes"
-                message="Quotes is a simple Titanium app built right now\nby Andrew Lombardi">
-
-                <ButtonNames>
-                    <ButtonName>Android Rules!</ButtonName>
-                </ButtonNames>
-            </AlertDialog>                            
-        </View>
     </Window>        
 
 </Alloy>

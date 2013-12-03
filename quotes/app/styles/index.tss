@@ -8,10 +8,14 @@
 },
 "#quote": {
     left: 10,
+    top: 120,
     font: {
-        font: "Arial-ItalicMT"
+        fontFamily: "IowanOldStyle-Italic"
     }
 },
 "#quote_author": {
-    right: 5
+    right: 5,
+    font: {
+        fontFamily: "IowanOldStyle-BoldItalic"
+    }
 }

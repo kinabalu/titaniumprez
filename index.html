@@ -87,9 +87,9 @@
 			<div class="slides">
 
 				<section>
-				    <img src="images/titanium_logo.png" />
+				    <object type="image/svg+xml" width="300" height="300" data="images/Apple_Computer_Logo_rainbow.svg"></object>
 
-					<h2>Using Javascript to Build Native Mobile Applications</h2>
+					<h2>Building iOS Applications with JavaScript</h2>
 					<p>
 						<small><a href="http://mysticcoders.com">Andrew Lombardi</a> / <a href="http://twitter.com/kinabalu">@kinabalu</a></small>
 					</p>
@@ -119,8 +119,57 @@
 				</section>
 				<section fullscreen-img="images/skydiving.png" />
 				</section>	
-				<section fullscreen-img="images/snow_angel.jpg" />
+				<section fullscreen-img="images/rakia_63.png" />
 				</section>	
+				<section>
+					<section>
+						<h1>DEMO</h1>
+					</section>
+					<section>
+						<h2>Building Hello, World</h2>
+
+<pre><code>% titanium create \
+	--name=appname \
+	--id=com.mysticcoders.helloworld \
+	--platforms=android,ipad,iphone
+Titanium Command-Line Interface, CLI version 3.0.22, Titanium SDK version 3.0.0.GA
+Copyright (c) 2012, Appcelerator, Inc.  All Rights Reserved.
+
+Please report bugs to http://jira.appcelerator.org/
+
+[INFO] Creating Titanium Mobile application project
+[INFO] Project 'helloworld' created successfully in 84ms
+% cd helloworld
+% alloy new
+</code></pre>
+					</section>
+					<section>
+						<h2>Our View XML</h2>
+<pre><code>&lt;Alloy&gt;<br/>	&lt;Window class=&quot;container&quot;&gt;<br/>	&lt;Label id=&quot;label&quot; onClick=&quot;doClick&quot;&gt;Hello, World&lt;/Label&gt;<br/>	&lt;/Window&gt;<br/>&lt;/Alloy&gt;	
+</code></pre>					
+					</section>
+					<section>
+						<h2>Our View Stylesheet</h2>
+<pre><code>".container": {
+	backgroundColor:"white"
+},
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "#000"
+} 	
+</code></pre>					
+					</section>
+					<section>
+						<h2>Our Controller</h2>
+<pre><code>function doClick(e) {  
+    alert($.label.text);
+}
+
+$.index.open();
+</code></pre>					
+					</section>
+				</section>
 				<section>
 				    <img src="images/titanium_logo.png" />
 
@@ -180,14 +229,6 @@
 					<img src="images/apple_developer_signup.png" border="0" />
 				</section>
 				<section>
-					<h3>Become a Google Play Developer</h3>
-					<img src="images/google_developer_signup.png" border="0" />
-				</section>
-				<section>
-					<h3>Become an Amazon Appstore Developer</h3>
-					<img src="images/amazon_developer_signup.png" border="0" />
-				</section>
-				<section>
 					<h1>Cost Breakdown</h1>
 					<table width="100%">
 						<thead>
@@ -196,9 +237,7 @@
 						</thead>
 						<tbody>
 							<tr class="fragment"><td>iOS Developer</td><td>$99 USD/YR</td></tr>
-							<tr class="fragment"><td>Google Play Developer</td><td>$25 USD once</td></tr>
-							<tr class="fragment"><td>Amazon Appstore Developer</td><td>$99 USD/YR</td></tr>
-							<tr class="fragment"><td>All</td><td>30% of Sales</td></tr>
+							<tr class="fragment"><td>Apple Profit</td><td>30% of All Sales</td></tr>
 						</tbody>
 					</table>
 				</section>
@@ -279,6 +318,25 @@ function printMem() {
 </code></pre>
 				</section>
 				<section>
+					<h2>Test for iOS 7</h2>
+<pre><code>
+
+function isiOS7() {
+	// iOS-specific test
+	if (Titanium.Platform.name == 'iPhone OS') {
+		var version = Titanium.Platform.version.split(".");
+		var major = parseInt(version[0],10);
+
+		// Can only test this support on a 3.2+ device
+		if (major >= 7) {
+			return true;
+		}
+	}
+	return false;
+}
+</code></pre>
+				</section>
+				<section>
 					<h2>Installing Command-Line Tools</h2>
 					<br />
 					<p>Installing NodeJS</p>
@@ -290,61 +348,6 @@ function printMem() {
 % npm install -g alloy
 </code></pre>
 				</section>
-				<section>
-					<section>
-						<h2>Building Hello, World</h2>
-
-<pre><code>% titanium create \
-	--name=appname \
-	--id=com.mysticcoders.helloworld \
-	--platforms=android,ipad,iphone
-Titanium Command-Line Interface, CLI version 3.0.22, Titanium SDK version 3.0.0.GA
-Copyright (c) 2012, Appcelerator, Inc.  All Rights Reserved.
-
-Please report bugs to http://jira.appcelerator.org/
-
-[INFO] Creating Titanium Mobile application project
-[INFO] Project 'helloworld' created successfully in 84ms
-% cd helloworld
-% alloy new
-</code></pre>
-					</section>
-					<section>
-						<h2>Our View XML</h2>
-<pre><code>&lt;Alloy&gt;<br/>	&lt;Window class=&quot;container&quot;&gt;<br/>	&lt;Label id=&quot;label&quot; onClick=&quot;doClick&quot;&gt;Hello, World&lt;/Label&gt;<br/>	&lt;/Window&gt;<br/>&lt;/Alloy&gt;	
-</code></pre>					
-					</section>
-					<section>
-						<h2>Our View Stylesheet</h2>
-<pre><code>".container": {
-	backgroundColor:"white"
-},
-"Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: "#000"
-} 	
-</code></pre>					
-					</section>
-					<section>
-						<h2>Our Controller</h2>
-<pre><code>function doClick(e) {  
-    alert($.label.text);
-}
-
-$.index.open();
-</code></pre>					
-					</section>
-					<section>
-						<h1>DEMO</h1>
-					</section>
-					<section>
-						<h2>Android Hints</h2>
-						<p>Sometimes the adb server doesn't start, so you'll have to do it manually</p>
-<pre><code>adb start-server</code></pre>
-					</section>
-				</section>
-
 				<section>
 					<section>
 						<h2>Alloy Fundamentals</h2>
@@ -384,7 +387,7 @@ $.index.open();
 						<thead>
 							<th>&nbsp;</th>
 							<th>Titanium</th>
-							<th>PhoneGap</th>
+							<th>PhoneGap / Cordova</th>
 						</thead>
 						<tbody>
 							<tr><td>Platform</td><td>iOS, Android, Windows, Blackberry, HTML5</td><td>iOS, Android, WebOS, Windows, RIM, Symbian</td></tr>
@@ -397,11 +400,9 @@ $.index.open();
 				<section>
 					<h2>Helpful Links</h2>
 					<p><a href="http://www.appcelerator.com">Appcelerator Titanium</a></p>
-					<p><a href="http://github.com/appcelerator">Titanium Source</a></p>
+					<p><a href="http://github.com/appcelerator">Titanium Repository</a></p>
 					<p><a href="http://developer.appcelerator.com/training">Titanium Training</a></p>
 					<p><a href="http://developer.apple.com">Apple Developer Portal</a></p>
-					<p><a href="https://play.google.com/apps/publish">Google Play Developer</a></p>
-					<p><a href="https://developer.amazon.com/welcome.html">Amazon App Store for Android</a></p>
 				</section>
 				<section>
 					<h1>Q & A</h1>
@@ -426,14 +427,6 @@ $.index.open();
 		<script src="reveal.js/js/reveal.min.js"></script>
 		<script src="js/underscore-min.js"></script>
 		<script>
-
-			var iframe_sections = [
-				// {'name': 'balloonshooter', 'url': 'balloonshooter/bubbles/index.html'},
-				// {'name': 'wolfenstein', 'url': 'http://www.nihilogic.dk/labs/wolf/'},
-				// {'name': 'html5_form', 'url': 'form.html'},
-				// {'name': 'geolocation', 'url': 'geolocation.html'},
-				// {'name': 'webgl', 'url': 'cube.html'}
-			];
 
 			Reveal.addEventListener( 'slidechanged', function( event ) {
 			    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
@@ -486,21 +479,6 @@ $.index.open();
 				]
 			});
 
-			/*
-			var canvas = document.getElementById('mystic_logo');
-			if (canvas.getContext) {
-				alert('canvas');
-				var context = canvas.getContext('2d');
-
-				var myImage = new Image();
-				myImage.onload = function() {
-				  canvas.setAttribute('width', myImage.width);
-				  canvas.setAttribute('height', myImage.height);
-				  context.drawImage(myImage, 0, 0);
-		          }
-			}
-			myImage.src = "images/mystic-logo-contracts.png";
-			*/
 		</script>
 
 	</body>
